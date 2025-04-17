@@ -59,10 +59,9 @@ Follow the steps below to deploy and interact with this contract locally using H
 1. **Clone the project and install dependencies**
 
 ```bash
-git clone <your-repo-url>
-cd <project-directory>
+git clone https://github.com/Shikhar1808/LaunchPad-Smart-Contract.git
 npm install --save-dev hardhat
-npx hardhat
+npx hardhat init
 ```
 
 Choose "Create a basic sample project" if you're starting from scratch.
