@@ -51,6 +51,8 @@ Follow the steps below to deploy and interact with this contract locally using H
 │   └── Launchpad.sol
 ├── scripts/
 │   └── deploy.js
+├── tests/
+│   └── Launchpad.test.js
 ├── hardhat.config.js
 ```
 
@@ -103,17 +105,31 @@ You should see an output like:
 
 ## 🧪 Tests
 
-> **Note:** You’ve shared a deployment script but not test cases yet. Here's what the tests should ideally cover:
+The project includes a comprehensive test suite using Hardhat and Chai.
 
-### ✅ Recommended Tests
+### 🧪 Test File
 
-- ✔️ **Token Creation**: Ensure tokens are created with the right metadata and balances
-- ✔️ **Buying Tokens**: Test ETH-to-token conversion and proper fund management
-- ✔️ **Selling Tokens**: Validate token transfers and ETH payouts
-- ✔️ **Withdrawal**: Confirm only the token creator can withdraw funds
-- ✔️ **Edge Cases**: Test low ETH, excessive token amounts, non-creator actions, and reentrancy protections
+- `tests/Launchpad.test.js`
 
-Once you provide test scripts, this section can be expanded with real examples and test results.
+### ✅ What is Tested
+
+| Test Case | Description |
+|-----------|-------------|
+| 🆕 Token Creation | Verifies tokens can be created with correct parameters and liquidity |
+| 💰 Token Purchase | Validates token buying logic and balance updates |
+| ❌ Unapproved Token Buy | Ensures error is thrown if tokens aren't approved by creator |
+| 💸 Refund Logic | Ensures excess ETH is refunded if user sends more than needed |
+| 🔁 Token Sell | Checks that users can sell tokens back and receive correct ETH |
+| 🔓 Creator Withdrawal | Confirms only token creator can withdraw ETH from pool |
+| ⛔ Unauthorized Withdrawal | Reverts if a non-creator attempts to withdraw ETH |
+
+### ▶️ Run the Tests
+
+```bash
+npx hardhat test
+```
+
+You’ll see detailed output with console logs for each step and assertion results.
 
 ---
 
